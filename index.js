@@ -9,7 +9,8 @@ const OScore = document.getElementById('OScore');
 let player = '';
 let computer = '';
 let reverseXandO = true;
-
+const switchButton = document.getElementById('switch');
+let round = document.getElementById('round');
 
 function reinitializeSquares(){
     gameWon = [];
@@ -17,8 +18,8 @@ function reinitializeSquares(){
     squaresArr = Array.from(squares);
 }
 
-
 function startGame() {
+    round.innerText++;
 
     if(reverseXandO){
         player = 'X';
@@ -27,8 +28,9 @@ function startGame() {
         player = 'O';
         computer = 'X';
     }
-
+    switchButton.disabled = 'disabled';
     startButton.disabled = 'disabled';
+
     squares.forEach(square => {
         if (square.innerText === '') {
             square.addEventListener('click', () => {
@@ -50,7 +52,6 @@ function startGame() {
         }
     })
 }
-
 
 function playerTurn(square, xOrO) {
     square.innerText = xOrO;
@@ -89,7 +90,7 @@ function checkWinner(){
     gameWon.push([squaresArr[0],squaresArr[1], squaresArr[2]], [squaresArr[3], squaresArr[4], squaresArr[5]], [squaresArr[6], squaresArr[7], squaresArr[8]],
                 [squaresArr[0], squaresArr[3], squaresArr[6]], [squaresArr[1], squaresArr[4], squaresArr[7]], [squaresArr[2], squaresArr[5], squaresArr[8]],
                 [squaresArr[0], squaresArr[4], squaresArr[8]], [squaresArr[2], squaresArr[4], squaresArr[6]]);
-    //this counts as 2 wins if there are 2 possible wins of the end of round -- FIX THIS ???
+    
     function loopThroughArray(){
         for(let i = 0; i < gameWon.length; i++){
             if(gameWon[i][0].innerText === gameWon[i][1].innerText 
@@ -128,17 +129,25 @@ function newGame(){
     },1000);
     setTimeout(()=>{
         startButton.disabled = '';
+        switchButton.disabled = '';
     }, 1500);
 }
 
 function switchXAndO(){
+    let tempScore = '';
     if(reverseXandO){
         reverseXandO = false;
+        tempScore = XScore.innerText;
+        XScore.innerText = OScore.innerText;
+        OScore.innerText = tempScore;
         XScore.previousElementSibling.innerText = 'Computer(X): '
         OScore.previousElementSibling.innerText = 'Player(O): '
 
     }else{
         reverseXandO = true;
+        tempScore = XScore.innerText;
+        XScore.innerText = OScore.innerText;
+        OScore.innerText = tempScore;
         XScore.previousElementSibling.innerText = 'Player(X): '
         OScore.previousElementSibling.innerText = 'Computer(O): '
     }

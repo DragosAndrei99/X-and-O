@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="stylesheets.css">
 </head>
 <body>
+    <div>
+        <h2>Round <span id="round">0</span></h2>
+    </div>
     <div style="display:grid ;" id="mainDiv">
         <div class="squares" style="grid-row-start:1 ;grid-column-start:1"></div>
         <div class="squares" style="grid-row-start:1 ;grid-column-start:2"></div>
@@ -21,13 +24,14 @@
 
 
     </div>
-    <button id="startButton" onclick="startGame()">START GAME</button>
+    <button id="startButton" onclick="startGame()">START</button>
     <div>
         <h3><span>Player(X):</span> <span id="XScore">0</span></h3>
         <button id='switch' onclick="switchXAndO()">↑↓ SWITCH</button>
         <h3><span>Computer(0):</span> <span id="OScore">0</span></h3>
     </div>
-    
+    <button id="startButton" onclick="location.reload()">NEW GAME</button>
+
 </body>
 <script src="index.js"></script>
 </html>
