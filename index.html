@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets.css">
+</head>
+<body>
+    <div style="display:grid ;" id="mainDiv">
+        <div class="squares" style="grid-row-start:1 ;grid-column-start:1"></div>
+        <div class="squares" style="grid-row-start:1 ;grid-column-start:2"></div>
+        <div class="squares" style="grid-row-start:1 ;grid-column-start:3"></div>
+        <div class="squares" style="grid-row-start:2 ;grid-column-start:1"></div>
+        <div class="squares" style="grid-row-start:2 ;grid-column-start:2"></div>
+        <div class="squares" style="grid-row-start:2 ;grid-column-start:3"></div>
+        <div class="squares" style="grid-row-start:3 ;grid-column-start:1"></div>
+        <div class="squares" style="grid-row-start:3 ;grid-column-start:2"></div>
+        <div class="squares" style="grid-row-start:3 ;grid-column-start:3"></div>
+
+
+    </div>
+    <button id="startButton" onclick="startGame()">START GAME</button>
+    <div>
+        <h3><span>Player(X):</span> <span id="XScore">0</span></h3>
+        <button id='switch' onclick="switchXAndO()">↑↓ SWITCH</button>
+        <h3><span>Computer(0):</span> <span id="OScore">0</span></h3>
+    </div>
+    
+</body>
+<script src="index.js"></script>
+</html>
